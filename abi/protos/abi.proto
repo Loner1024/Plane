@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package abi;
+
+service Plane {
+  rpc CreateBlog (CreateBlogRequest) returns (CreateBlogResponse) {}
+  rpc UpdateBlog (UpdateBlogRequest) returns (UpdateBlogResponse) {}
+  rpc GetBlog (GetBlogRequest) returns (GetBlogResponse) {}
+  rpc BlogList (BlogListRequest) returns (BlogListResponse) {}
+  rpc DeleteBlog (DeleteBlogRequest) returns (DeleteBlogResponse) {}
+}
+
+message UpdateBlogRequest {
+  string id = 1;
+  string title = 2;
+  string content = 3;
+  repeated Tag tags = 4;
+}
+
+message UpdateBlogResponse {
+  Article article = 1;
+}
+
+message DeleteBlogRequest {
+  string id = 1;
+}
+
+message DeleteBlogResponse {
+  string id = 1;
+}
+
+message CreateBlogRequest {
+  string title = 1;
+  string content = 2;
+  repeated Tag tags = 3;
+}
+
+message CreateBlogResponse {
+  Article article = 1;
+}
+
+message BlogListRequest {
+  int32 page_size = 1;
+  int32 page_number = 2;
+}
+
+message BlogListResponse {
+  int32 total_page = 1;
+  message Data {
+    string id = 1;
+    string title = 2;
+    google.protobuf.Timestamp created_at = 3;
+    google.protobuf.Timestamp update_at = 4;
+  }
+}
+
+message GetBlogRequest {
+  int64 id = 1;
+}
+
+message GetBlogResponse {
+  Article article = 1;
+}
+
+message Article {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+  repeated Tag tags = 6;
+}
+
+message Tag {
+  int64 id = 1;
+  string value = 2;
+}
