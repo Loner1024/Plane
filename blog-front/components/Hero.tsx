@@ -1,15 +1,14 @@
 import React from 'react';
-import AvatarImg from '../public/avatar.png'
-import {Avatar,Text} from "@geist-ui/core";
+import {Display,Image} from "@geist-ui/core";
+import DemoImg from "../public/001.jpeg"
+import {inspect} from "util";
+import styles = module
 
-const Hero = ({heading}:{heading:String}) => {
+const Hero = () => {
     return (
-        <div className="flex flex-col justify-center">
-            <div className="flex w-24 h-24">
-                <Avatar src={AvatarImg.src} width="100%" height="100%"/>
-            </div>
-            <div className="mt-2 mb-0">
-                <Text h2 style={{marginBottom:0}}>{heading}</Text>
+        <div className="max-w-[1240px] mx-auto relative flex justify-center z-[2] h-96">
+            <div className="flex pt-10">
+                <Image width="100%" style={{objectFit:'cover'}}  src={DemoImg.src}/>
             </div>
         </div>
     );

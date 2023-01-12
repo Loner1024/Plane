@@ -1,5 +1,6 @@
 import React from 'react';
-import {Divider, Link} from "@geist-ui/core";
+import { Link, Text} from "@geist-ui/core";
+import {Search} from "@icon-park/react";
 
 
 const NavBar = ({page}:{page:String}) => {
@@ -7,13 +8,21 @@ const NavBar = ({page}:{page:String}) => {
         return page === pageName ? 'text-black' : 'text-gray-500';
     }
     return (
-        <div>
-            <div className="flex justify-start items-center my-5 text-gray-500 mb-10">
-                <Link href="/#" style={{marginRight:'1.5rem'}} className={judgeColor('blog')}>Blog</Link>
-                <Link href="/#" style={{marginRight:'1.5rem'}} className={judgeColor('photo')}>Photo</Link>
-                <Link href="/#" style={{marginRight:'1.5rem'}} className={judgeColor('about')}>About</Link>
+        <div className="fixed left-0 top-0 w-full z-10 ease-in duration-300 relative">
+            <div className="max-w-[1240px] flex justify-between items-center text-xl px-32 pt-10 m-auto">
+                    <div className="basis-1/4">
+                        <Text h4 className="m-0">Logo</Text>
+                    </div>
+                    <div className="flex">
+                        <Link href="#" style={{padding:'1rem'}}>Home</Link>
+                        <Link href="#" style={{padding:'1rem'}}>Archives</Link>
+                        <Link href="#" style={{padding:'1rem'}}>Topics</Link>
+                        <Link href="#" style={{padding:'1rem'}}>About</Link>
+                        <div className="p-4 mt-1">
+                            <Search theme="outline" size="22" fill="#333"/>
+                        </div>
+                    </div>
             </div>
-            <Divider/>
         </div>
     );
 };
