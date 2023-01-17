@@ -14,7 +14,8 @@ const BlogList = ({articles}: { articles: Article[] }) => {
                         <Card hoverable key={index} className="max-h-max"
                               style={{marginBottom: "1.25rem", marginTop: "1.25rem", border: "0"}}>
                             {article.image !== "" ?
-                                <Image width="100%" h="none" className="md:h-64 h-36" style={{objectFit: 'cover'}}
+                                <Image width="100%" h="none" alt={article.title} className="md:h-64 h-36"
+                                       style={{objectFit: 'cover'}}
                                        src={article.image}/> : null}
                             <Text h4>{article.title}</Text>
                             <Text type="secondary"
