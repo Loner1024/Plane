@@ -10,8 +10,8 @@ const NavBar = ({page, switchTheme, themeType}: { page: String, switchTheme: any
     return (
         <div className="fixed left-0 top-0 w-full z-10 ease-in duration-300 relative">
             <div
-                className="max-w-[1240px] w-screen flex shrink md:flex-row flex-col md:justify-between justify-center items-center text-xl mt-5 md:pt-10 md:px-10 m-auto">
-                <div className="w-full inline-flex justify-center md:justify-start">
+                className="max-w-[1240px] box-border w-screen flex shrink md:flex-row flex-col md:justify-between justify-center items-center text-xl mt-5 md:pt-10 md:px-10 m-auto">
+                <div className="w-full inline-flex justify-center md:justify-start md:basis-6/12">
                     <Text h4 className="m-0">Logo</Text>
                 </div>
                 <div className="inline-flex box-border items-center justify-between mt-5 px-5 w-full">
