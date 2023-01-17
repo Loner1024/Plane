@@ -5,6 +5,7 @@ import 'inter-ui/inter.css'
 import 'normalize.css'
 import {useState} from "react";
 import NavBar from "../components/NavBar";
+import {Analytics} from '@vercel/analytics/react';
 
 export default function App({Component, pageProps}: AppProps) {
     const [theme, setTheme] = useState('light')
@@ -16,6 +17,7 @@ export default function App({Component, pageProps}: AppProps) {
             <CssBaseline/>
             <NavBar page='blog' switchTheme={switchTheme} themeType={theme}/>
             <Component {...pageProps} />
+            <Analytics/>
         </GeistProvider>
     )
 }
