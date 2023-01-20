@@ -7,6 +7,7 @@ import {useState} from "react";
 import NavBar from "../components/NavBar";
 import {Analytics} from '@vercel/analytics/react';
 
+
 export default function App({Component, pageProps}: AppProps) {
     const [theme, setTheme] = useState('light')
     const switchTheme = () => {
