@@ -110,15 +110,15 @@ pub struct Tag {
     pub value: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
-pub mod plane_client {
+pub mod blog_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
     use tonic::codegen::http::Uri;
+    use tonic::codegen::*;
     #[derive(Debug, Clone)]
-    pub struct PlaneClient<T> {
+    pub struct BlogServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl PlaneClient<tonic::transport::Channel> {
+    impl BlogServiceClient<tonic::transport::Channel> {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
@@ -129,7 +129,7 @@ pub mod plane_client {
             Ok(Self::new(conn))
         }
     }
-    impl<T> PlaneClient<T>
+    impl<T> BlogServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -147,7 +147,7 @@ pub mod plane_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> PlaneClient<InterceptedService<T, F>>
+        ) -> BlogServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -157,11 +157,10 @@ pub mod plane_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
+                Into<StdError> + Send + Sync,
         {
-            PlaneClient::new(InterceptedService::new(inner, interceptor))
+            BlogServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -182,96 +181,81 @@ pub mod plane_client {
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBlogRequest>,
         ) -> Result<tonic::Response<super::CreateBlogResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
+            self.inner.ready().await.map_err(|e| {
+                tonic::Status::new(
+                    tonic::Code::Unknown,
+                    format!("Service was not ready: {}", e.into()),
+                )
+            })?;
             let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static("/abi.Plane/CreateBlog");
+            let path = http::uri::PathAndQuery::from_static("/abi.BlogService/CreateBlog");
             self.inner.unary(request.into_request(), path, codec).await
         }
         pub async fn update_blog(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBlogRequest>,
         ) -> Result<tonic::Response<super::UpdateBlogResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
+            self.inner.ready().await.map_err(|e| {
+                tonic::Status::new(
+                    tonic::Code::Unknown,
+                    format!("Service was not ready: {}", e.into()),
+                )
+            })?;
             let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static("/abi.Plane/UpdateBlog");
+            let path = http::uri::PathAndQuery::from_static("/abi.BlogService/UpdateBlog");
             self.inner.unary(request.into_request(), path, codec).await
         }
         pub async fn get_blog(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBlogRequest>,
         ) -> Result<tonic::Response<super::GetBlogResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
+            self.inner.ready().await.map_err(|e| {
+                tonic::Status::new(
+                    tonic::Code::Unknown,
+                    format!("Service was not ready: {}", e.into()),
+                )
+            })?;
             let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static("/abi.Plane/GetBlog");
+            let path = http::uri::PathAndQuery::from_static("/abi.BlogService/GetBlog");
             self.inner.unary(request.into_request(), path, codec).await
         }
         pub async fn blog_list(
             &mut self,
             request: impl tonic::IntoRequest<super::BlogListRequest>,
         ) -> Result<tonic::Response<super::BlogListResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
+            self.inner.ready().await.map_err(|e| {
+                tonic::Status::new(
+                    tonic::Code::Unknown,
+                    format!("Service was not ready: {}", e.into()),
+                )
+            })?;
             let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static("/abi.Plane/BlogList");
+            let path = http::uri::PathAndQuery::from_static("/abi.BlogService/BlogList");
             self.inner.unary(request.into_request(), path, codec).await
         }
         pub async fn delete_blog(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteBlogRequest>,
         ) -> Result<tonic::Response<super::DeleteBlogResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
+            self.inner.ready().await.map_err(|e| {
+                tonic::Status::new(
+                    tonic::Code::Unknown,
+                    format!("Service was not ready: {}", e.into()),
+                )
+            })?;
             let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static("/abi.Plane/DeleteBlog");
+            let path = http::uri::PathAndQuery::from_static("/abi.BlogService/DeleteBlog");
             self.inner.unary(request.into_request(), path, codec).await
         }
     }
 }
 /// Generated server implementations.
-pub mod plane_server {
+pub mod blog_service_server {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
-    /// Generated trait containing gRPC methods that should be implemented for use with PlaneServer.
+    /// Generated trait containing gRPC methods that should be implemented for use with BlogServiceServer.
     #[async_trait]
-    pub trait Plane: Send + Sync + 'static {
+    pub trait BlogService: Send + Sync + 'static {
         async fn create_blog(
             &self,
             request: tonic::Request<super::CreateBlogRequest>,
@@ -294,13 +278,13 @@ pub mod plane_server {
         ) -> Result<tonic::Response<super::DeleteBlogResponse>, tonic::Status>;
     }
     #[derive(Debug)]
-    pub struct PlaneServer<T: Plane> {
+    pub struct BlogServiceServer<T: BlogService> {
         inner: _Inner<T>,
         accept_compression_encodings: EnabledCompressionEncodings,
         send_compression_encodings: EnabledCompressionEncodings,
     }
     struct _Inner<T>(Arc<T>);
-    impl<T: Plane> PlaneServer<T> {
+    impl<T: BlogService> BlogServiceServer<T> {
         pub fn new(inner: T) -> Self {
             Self::from_arc(Arc::new(inner))
         }
@@ -312,10 +296,7 @@ pub mod plane_server {
                 send_compression_encodings: Default::default(),
             }
         }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> InterceptedService<Self, F>
+        pub fn with_interceptor<F>(inner: T, interceptor: F) -> InterceptedService<Self, F>
         where
             F: tonic::service::Interceptor,
         {
@@ -334,34 +315,27 @@ pub mod plane_server {
             self
         }
     }
-    impl<T, B> tonic::codegen::Service<http::Request<B>> for PlaneServer<T>
+    impl<T, B> tonic::codegen::Service<http::Request<B>> for BlogServiceServer<T>
     where
-        T: Plane,
+        T: BlogService,
         B: Body + Send + 'static,
         B::Error: Into<StdError> + Send + 'static,
     {
         type Response = http::Response<tonic::body::BoxBody>;
         type Error = std::convert::Infallible;
         type Future = BoxFuture<Self::Response, Self::Error>;
-        fn poll_ready(
-            &mut self,
-            _cx: &mut Context<'_>,
-        ) -> Poll<Result<(), Self::Error>> {
+        fn poll_ready(&mut self, _cx: &mut Context<'_>) -> Poll<Result<(), Self::Error>> {
             Poll::Ready(Ok(()))
         }
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
             let inner = self.inner.clone();
             match req.uri().path() {
-                "/abi.Plane/CreateBlog" => {
+                "/abi.BlogService/CreateBlog" => {
                     #[allow(non_camel_case_types)]
-                    struct CreateBlogSvc<T: Plane>(pub Arc<T>);
-                    impl<T: Plane> tonic::server::UnaryService<super::CreateBlogRequest>
-                    for CreateBlogSvc<T> {
+                    struct CreateBlogSvc<T: BlogService>(pub Arc<T>);
+                    impl<T: BlogService> tonic::server::UnaryService<super::CreateBlogRequest> for CreateBlogSvc<T> {
                         type Response = super::CreateBlogResponse;
-                        type Future = BoxFuture<
-                            tonic::Response<Self::Response>,
-                            tonic::Status,
-                        >;
+                        type Future = BoxFuture<tonic::Response<Self::Response>, tonic::Status>;
                         fn call(
                             &mut self,
                             request: tonic::Request<super::CreateBlogRequest>,
@@ -378,26 +352,21 @@ pub mod plane_server {
                         let inner = inner.0;
                         let method = CreateBlogSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
-                        let mut grpc = tonic::server::Grpc::new(codec)
-                            .apply_compression_config(
-                                accept_compression_encodings,
-                                send_compression_encodings,
-                            );
+                        let mut grpc = tonic::server::Grpc::new(codec).apply_compression_config(
+                            accept_compression_encodings,
+                            send_compression_encodings,
+                        );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
                     };
                     Box::pin(fut)
                 }
-                "/abi.Plane/UpdateBlog" => {
+                "/abi.BlogService/UpdateBlog" => {
                     #[allow(non_camel_case_types)]
-                    struct UpdateBlogSvc<T: Plane>(pub Arc<T>);
-                    impl<T: Plane> tonic::server::UnaryService<super::UpdateBlogRequest>
-                    for UpdateBlogSvc<T> {
+                    struct UpdateBlogSvc<T: BlogService>(pub Arc<T>);
+                    impl<T: BlogService> tonic::server::UnaryService<super::UpdateBlogRequest> for UpdateBlogSvc<T> {
                         type Response = super::UpdateBlogResponse;
-                        type Future = BoxFuture<
-                            tonic::Response<Self::Response>,
-                            tonic::Status,
-                        >;
+                        type Future = BoxFuture<tonic::Response<Self::Response>, tonic::Status>;
                         fn call(
                             &mut self,
                             request: tonic::Request<super::UpdateBlogRequest>,
@@ -414,26 +383,21 @@ pub mod plane_server {
                         let inner = inner.0;
                         let method = UpdateBlogSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
-                        let mut grpc = tonic::server::Grpc::new(codec)
-                            .apply_compression_config(
-                                accept_compression_encodings,
-                                send_compression_encodings,
-                            );
+                        let mut grpc = tonic::server::Grpc::new(codec).apply_compression_config(
+                            accept_compression_encodings,
+                            send_compression_encodings,
+                        );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
                     };
                     Box::pin(fut)
                 }
-                "/abi.Plane/GetBlog" => {
+                "/abi.BlogService/GetBlog" => {
                     #[allow(non_camel_case_types)]
-                    struct GetBlogSvc<T: Plane>(pub Arc<T>);
-                    impl<T: Plane> tonic::server::UnaryService<super::GetBlogRequest>
-                    for GetBlogSvc<T> {
+                    struct GetBlogSvc<T: BlogService>(pub Arc<T>);
+                    impl<T: BlogService> tonic::server::UnaryService<super::GetBlogRequest> for GetBlogSvc<T> {
                         type Response = super::GetBlogResponse;
-                        type Future = BoxFuture<
-                            tonic::Response<Self::Response>,
-                            tonic::Status,
-                        >;
+                        type Future = BoxFuture<tonic::Response<Self::Response>, tonic::Status>;
                         fn call(
                             &mut self,
                             request: tonic::Request<super::GetBlogRequest>,
@@ -450,26 +414,21 @@ pub mod plane_server {
                         let inner = inner.0;
                         let method = GetBlogSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
-                        let mut grpc = tonic::server::Grpc::new(codec)
-                            .apply_compression_config(
-                                accept_compression_encodings,
-                                send_compression_encodings,
-                            );
+                        let mut grpc = tonic::server::Grpc::new(codec).apply_compression_config(
+                            accept_compression_encodings,
+                            send_compression_encodings,
+                        );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
                     };
                     Box::pin(fut)
                 }
-                "/abi.Plane/BlogList" => {
+                "/abi.BlogService/BlogList" => {
                     #[allow(non_camel_case_types)]
-                    struct BlogListSvc<T: Plane>(pub Arc<T>);
-                    impl<T: Plane> tonic::server::UnaryService<super::BlogListRequest>
-                    for BlogListSvc<T> {
+                    struct BlogListSvc<T: BlogService>(pub Arc<T>);
+                    impl<T: BlogService> tonic::server::UnaryService<super::BlogListRequest> for BlogListSvc<T> {
                         type Response = super::BlogListResponse;
-                        type Future = BoxFuture<
-                            tonic::Response<Self::Response>,
-                            tonic::Status,
-                        >;
+                        type Future = BoxFuture<tonic::Response<Self::Response>, tonic::Status>;
                         fn call(
                             &mut self,
                             request: tonic::Request<super::BlogListRequest>,
@@ -486,26 +445,21 @@ pub mod plane_server {
                         let inner = inner.0;
                         let method = BlogListSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
-                        let mut grpc = tonic::server::Grpc::new(codec)
-                            .apply_compression_config(
-                                accept_compression_encodings,
-                                send_compression_encodings,
-                            );
+                        let mut grpc = tonic::server::Grpc::new(codec).apply_compression_config(
+                            accept_compression_encodings,
+                            send_compression_encodings,
+                        );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
                     };
                     Box::pin(fut)
                 }
-                "/abi.Plane/DeleteBlog" => {
+                "/abi.BlogService/DeleteBlog" => {
                     #[allow(non_camel_case_types)]
-                    struct DeleteBlogSvc<T: Plane>(pub Arc<T>);
-                    impl<T: Plane> tonic::server::UnaryService<super::DeleteBlogRequest>
-                    for DeleteBlogSvc<T> {
+                    struct DeleteBlogSvc<T: BlogService>(pub Arc<T>);
+                    impl<T: BlogService> tonic::server::UnaryService<super::DeleteBlogRequest> for DeleteBlogSvc<T> {
                         type Response = super::DeleteBlogResponse;
-                        type Future = BoxFuture<
-                            tonic::Response<Self::Response>,
-                            tonic::Status,
-                        >;
+                        type Future = BoxFuture<tonic::Response<Self::Response>, tonic::Status>;
                         fn call(
                             &mut self,
                             request: tonic::Request<super::DeleteBlogRequest>,
@@ -522,32 +476,27 @@ pub mod plane_server {
                         let inner = inner.0;
                         let method = DeleteBlogSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
-                        let mut grpc = tonic::server::Grpc::new(codec)
-                            .apply_compression_config(
-                                accept_compression_encodings,
-                                send_compression_encodings,
-                            );
+                        let mut grpc = tonic::server::Grpc::new(codec).apply_compression_config(
+                            accept_compression_encodings,
+                            send_compression_encodings,
+                        );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
                     };
                     Box::pin(fut)
                 }
-                _ => {
-                    Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", "12")
-                                .header("content-type", "application/grpc")
-                                .body(empty_body())
-                                .unwrap(),
-                        )
-                    })
-                }
+                _ => Box::pin(async move {
+                    Ok(http::Response::builder()
+                        .status(200)
+                        .header("grpc-status", "12")
+                        .header("content-type", "application/grpc")
+                        .body(empty_body())
+                        .unwrap())
+                }),
             }
         }
     }
-    impl<T: Plane> Clone for PlaneServer<T> {
+    impl<T: BlogService> Clone for BlogServiceServer<T> {
         fn clone(&self) -> Self {
             let inner = self.inner.clone();
             Self {
@@ -557,7 +506,7 @@ pub mod plane_server {
             }
         }
     }
-    impl<T: Plane> Clone for _Inner<T> {
+    impl<T: BlogService> Clone for _Inner<T> {
         fn clone(&self) -> Self {
             Self(self.0.clone())
         }
@@ -567,7 +516,7 @@ pub mod plane_server {
             write!(f, "{:?}", self.0)
         }
     }
-    impl<T: Plane> tonic::server::NamedService for PlaneServer<T> {
-        const NAME: &'static str = "abi.Plane";
+    impl<T: BlogService> tonic::server::NamedService for BlogServiceServer<T> {
+        const NAME: &'static str = "abi.BlogService";
     }
 }
